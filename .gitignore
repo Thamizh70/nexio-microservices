@@ -1,0 +1,43 @@
+# Maven / Java
+target/
+*.class
+
+# Spring Boot
+*.log
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Environment / secrets
+.env
+.env.*
+application-local.properties
+application-local.yml
+
+# Postman local metadata
+.postman/
+
+# Node
+node_modules/
+dist/
+
+# Build/output directories
+**/bin/
+target/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build files
+*.jar
+*.war
