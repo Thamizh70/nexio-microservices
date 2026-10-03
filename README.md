@@ -1,0 +1,371 @@
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,24&height=230&section=header&text=NEXIO&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Ride-Hailing%20Microservices%20Platform&descAlignY=58&descSize=22" alt="Nexio banner" width="100%"/>
+
+<a href="https://github.com/Thamizh70/nexio-microservices">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pduration=3000&pause=800&color=00D4FF&center=true&vCenter=true&width=700&lines=Book+a+ride.+Track+it+live.+Pay+seamlessly.;Java+21+%2B+Spring+Boot+Microservices;Event-driven.+Scalable.+Cloud-ready." alt="Typing animation"/>
+</a>
+
+<br/>
+
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+
+![Status](https://img.shields.io/badge/status-active_development-FFB000?style=flat-square)
+![Services](https://img.shields.io/badge/microservices-11-8A2BE2?style=flat-square)
+![Build](https://img.shields.io/badge/build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+
+<br/>
+
+**[Overview](#-overview) • [Product Flow](#-product-flow) • [Services](#-microservices) • [Architecture](#-architecture) • [Tech Stack](#-technology-stack) • [Getting Started](#-getting-started) • [Roadmap](#-roadmap)**
+
+</div>
+
+---
+
+## ✨ Overview
+
+**Nexio** is a ride-hailing platform built with **Java 21 and Spring Boot**, organized as a set of independently deployable microservices.
+
+The current project models the rider and driver journey:
+
+> 📱 Account creation → 🚖 Ride booking → 🧭 Driver assignment → 📍 Live tracking → 💳 Payment → ⭐ Rating → 🕘 Ride history
+
+> [!NOTE]
+> **Project status: 🚧 Active development.** The repository contains service foundations and is being implemented incrementally. Some integrations and distributed-system features listed in the roadmap are planned rather than fully implemented.
+
+---
+
+## 📱 Product Flow
+
+<div align="center">
+
+![Nexio mobile application flow](docs/images/nexio-mobile-ui-flow.png)
+
+</div>
+
+```mermaid
+flowchart LR
+    A([🚀 Splash]) --> B[📞 Mobile Number]
+    B --> C[🔐 OTP Verification]
+    C --> D[👤 Profile Creation]
+    D --> E[📍 Location Permission]
+    E --> F[🏦 Payout Setup]
+    F --> G([✅ Account Created])
+
+    G --> H[🏠 Home / Book a Ride]
+    H --> I[🗺️ Destination]
+    I --> J[💰 Fare & Vehicle]
+    J --> K[🔎 Driver Search]
+    K --> L[🧑‍✈️ Driver Assigned]
+    L --> M[📡 Live Tracking]
+    M --> N[🚗 Driver Arrival]
+    N --> O[🛣️ Ride in Progress]
+    O --> P[🏁 Destination Reached]
+    P --> Q[💳 Payment]
+    Q --> R[🎉 Payment Success]
+    R --> S[⭐ Rating]
+    S --> T[🕘 Ride History]
+
+    classDef onboarding fill:#7C3AED,stroke:#4C1D95,color:#fff,stroke-width:2px
+    classDef booking fill:#0EA5E9,stroke:#075985,color:#fff,stroke-width:2px
+    classDef trip fill:#F59E0B,stroke:#92400E,color:#fff,stroke-width:2px
+    classDef finish fill:#10B981,stroke:#065F46,color:#fff,stroke-width:2px
+
+    class A,B,C,D,E,F,G onboarding
+    class H,I,J,K,L booking
+    class M,N,O,P trip
+    class Q,R,S,T finish
+```
+
+| 🟣 Onboarding | 🔵 Booking | 🟠 Trip | 🟢 Completion |
+|:--|:--|:--|:--|
+| Splash / Welcome | Home / Book a Ride | Live trip tracking | Payment |
+| Mobile number entry | Destination selection | Driver arrival | Payment success |
+| OTP verification | Fare & vehicle selection | Ride in progress | Ride rating |
+| User profile creation | Driver search | Destination reached | Ride history |
+| Location permission | Driver assignment | | Profile / Wallet / Settings |
+| Bank account / payout setup | | | |
+
+---
+
+## 🧩 Microservices
+
+| | Service | Responsibility |
+|:-:|:--|:--|
+| 🚪 | `nexio-api-gateway` | Single entry point and request routing |
+| 🧭 | `nexio-service-discovery` | Service registration and discovery |
+| 🔐 | `nexio-auth-service` | Authentication, OTP, JWT, refresh tokens, and account security |
+| 👤 | `nexio-user-service` | User profile and user-related operations |
+| 🧑‍✈️ | `nexio-driver-service` | Driver registration and driver management |
+| 🚖 | `nexio-ride-service` | Ride booking, matching, trip lifecycle, and ride state |
+| 📍 | `nexio-location-service` | Real-time location and trip tracking |
+| 💰 | `nexio-pricing-service` | Fare calculation and pricing rules |
+| 💳 | `nexio-payment-service` | Payment and transaction processing |
+| 🔔 | `nexio-notification-service` | Notifications such as SMS, email, and push |
+| ⭐ | `nexio-rating-service` | Rider and driver ratings / reviews |
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TB
+    Client(["📱 Mobile / Web Client"])
+
+    Gateway{{"🚪 API Gateway"}}
+    Discovery{{"🧭 Service Discovery"}}
+
+    Auth["🔐 Auth Service"]
+    User["👤 User Service"]
+    Driver["🧑‍✈️ Driver Service"]
+    Ride["🚖 Ride Service"]
+    Location["📍 Location Service"]
+    Pricing["💰 Pricing Service"]
+    Payment["💳 Payment Service"]
+    Notification["🔔 Notification Service"]
+    Rating["⭐ Rating Service"]
+
+    Client --> Gateway
+    Gateway --> Discovery
+
+    Gateway --> Auth
+    Gateway --> User
+    Gateway --> Driver
+    Gateway --> Ride
+    Gateway --> Location
+    Gateway --> Pricing
+    Gateway --> Payment
+    Gateway --> Notification
+    Gateway --> Rating
+
+    Discovery -. registers .-> Auth
+    Discovery -. registers .-> User
+    Discovery -. registers .-> Driver
+    Discovery -. registers .-> Ride
+    Discovery -. registers .-> Location
+    Discovery -. registers .-> Pricing
+    Discovery -. registers .-> Payment
+    Discovery -. registers .-> Notification
+    Discovery -. registers .-> Rating
+
+    Ride --> Location
+    Ride --> Pricing
+    Ride --> Payment
+    Ride --> Notification
+    Ride --> Rating
+
+    classDef client fill:#111827,stroke:#06B6D4,color:#fff,stroke-width:2px
+    classDef infra fill:#7C3AED,stroke:#4C1D95,color:#fff,stroke-width:2px
+    classDef core fill:#F59E0B,stroke:#92400E,color:#fff,stroke-width:3px
+    classDef svc fill:#0EA5E9,stroke:#075985,color:#fff,stroke-width:2px
+    classDef money fill:#10B981,stroke:#065F46,color:#fff,stroke-width:2px
+
+    class Client client
+    class Gateway,Discovery infra
+    class Ride core
+    class Auth,User,Driver,Location,Notification,Rating svc
+    class Pricing,Payment money
+```
+
+---
+
+## 🛠️ Technology Stack
+
+### ☕ Backend
+
+- Java 21
+- Spring Boot
+- Spring Security
+- Spring Data JPA / Hibernate
+- REST APIs
+- Maven
+- PostgreSQL
+
+### ☁️ Distributed Systems & Infrastructure
+
+- Spring Cloud
+- Service Discovery
+- API Gateway
+- Kafka *(planned / being integrated)*
+- Redis *(planned / being integrated)*
+- WebSocket *(planned / being integrated)*
+- Docker *(planned / being integrated)*
+- Kubernetes *(planned)*
+
+### 🧪 API Testing
+
+- Postman
+
+--- 
+
+## 📂 Repository Structure
+
+```text
+nexio-microservices/
+│
+├── 🚪 nexio-api-gateway/
+├── 🔐 nexio-auth-service/
+├── 🧑‍✈️ nexio-driver-service/
+├── 📍 nexio-location-service/
+├── 🔔 nexio-notification-service/
+├── 💳 nexio-payment-service/
+├── 💰 nexio-pricing-service/
+├── ⭐ nexio-rating-service/
+├── 🚖 nexio-ride-service/
+├── 🧭 nexio-service-discovery/
+├── 👤 nexio-user-service/
+│
+├── 📬 postman/
+├── 📚 docs/
+├── 🙈 .gitignore
+└── 📄 README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+| Required | Optional (as the project evolves) |
+|:--|:--|
+| ☕ JDK 21 | 🔴 Redis |
+| 📦 Maven Wrapper *(included in each service)* | 📨 Kafka |
+| 🐘 PostgreSQL | 🐳 Docker Desktop |
+| 🌱 Git | |
+| 📬 Postman | |
+
+### ▶️ Run a service
+
+From the required service directory:
+
+```powershell
+cd nexio-auth-service
+.\mvnw.cmd spring-boot:run
+```
+
+Repeat for other services as required by your local environment.
+
+> [!TIP]
+> Start `nexio-service-discovery` first, then `nexio-api-gateway`, followed by the services you want to work with.
+
+### 🔨 Build a service
+
+```powershell
+.\mvnw.cmd clean package
+```
+
+---
+
+## 📬 Postman
+
+Exported Postman workspace data lives under:
+
+```text
+postman/
+```
+
+> [!WARNING]
+> Use environment variables for local credentials and secrets. **Never commit** real passwords, JWT signing secrets, payment-provider secrets, API keys, or OTP-provider credentials.
+
+---
+
+## 🌿 Git Workflow
+
+```mermaid
+gitGraph
+    commit id: "init"
+    branch develop
+    checkout develop
+    commit id: "setup"
+    branch feature/auth
+    commit id: "auth"
+    checkout develop
+    merge feature/auth
+    branch feature/ride
+    commit id: "ride"
+    checkout develop
+    merge feature/ride
+    checkout main
+    merge develop tag: "v0.1.0"
+```
+
+```powershell
+git checkout -b feature/ride
+
+git add .
+git commit -m "Implement ride booking flow"
+
+git push -u origin feature/ride
+```
+
+Merge completed features into `develop`; merge reviewed and tested changes into `main`.
+
+---
+
+## 🧠 Development Principles
+
+- 🎯 Keep each service focused on a clear business responsibility.
+- 🗄️ Avoid sharing database tables directly between services.
+- 🔒 Keep secrets outside source control.
+- 📜 Use API contracts for service-to-service communication.
+- ⚡ Prefer asynchronous events for workflows that do not require synchronous responses.
+- 🧪 Add automated tests as business logic grows.
+- 🐳 Containerize services only after their local configuration is stable.
+
+---
+
+## 🗺️ Roadmap
+
+### Foundation
+
+- [x] Initial microservices repository
+- [x] API Gateway service foundation
+- [x] Service Discovery service foundation
+- [x] Authentication service foundation
+- [x] User service foundation
+- [x] Driver service foundation
+- [x] Ride service foundation
+- [x] Location service foundation
+- [x] Pricing service foundation
+- [x] Payment service foundation
+- [x] Notification service foundation
+- [x] Rating service foundation
+
+### 🚧 Up next
+
+- [ ] Complete service-to-service communication
+- [ ] Complete PostgreSQL persistence
+- [ ] Kafka event flows
+- [ ] Redis caching
+- [ ] Real-time WebSocket tracking
+- [ ] Payment-provider integration
+- [ ] Docker Compose environment
+- [ ] Kubernetes deployment
+- [ ] CI/CD pipeline
+- [ ] Integration and end-to-end tests
+
+--- 
+
+## 📄 License
+
+No license has been selected yet. Until a license is added, others should not assume they have permission to reuse or redistribute this code.
+
+---
+
+<div align="center">
+
+**Built with ☕ and 💜 using Java 21 & Spring Boot**
+
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,24&height=120&section=footer" alt="footer" width="100%"/>
+
+</div>
