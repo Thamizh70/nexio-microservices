@@ -1,26 +1,26 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,24&height=230&section=header&text=NEXIO&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Ride-Hailing%20Microservices%20Platform&descAlignY=58&descSize=22" alt="Nexio banner" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0B0B0B&height=230&section=header&text=NEXIO&fontSize=80&fontColor=FFD21F&animation=fadeIn&fontAlignY=36&desc=Ride-Hailing%20Microservices%20Platform&descAlignY=58&descSize=22&descColor=FFFFFF" alt="Nexio banner" width="100%"/>
 
 <a href="https://github.com/Thamizh70/nexio-microservices">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pduration=3000&pause=800&color=00D4FF&center=true&vCenter=true&width=700&lines=Book+a+ride.+Track+it+live.+Pay+seamlessly.;Java+21+%2B+Spring+Boot+Microservices;Event-driven.+Scalable.+Cloud-ready." alt="Typing animation"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pduration=3000&pause=800&color=FFD21F&center=true&vCenter=true&width=700&lines=Book+a+ride.+Track+it+live.+Pay+seamlessly.;Java+21+%2B+Spring+Boot+Microservices;Event-driven.+Scalable.+Cloud-ready." alt="Typing animation"/>
 </a>
 
 <br/>
 
-![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Java](https://img.shields.io/badge/Java_21-FFD21F?style=for-the-badge&logo=openjdk&logoColor=111111)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-FFD21F?style=for-the-badge&logo=springboot&logoColor=111111)
+![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-FFD21F?style=for-the-badge&logo=spring&logoColor=111111)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-FFD21F?style=for-the-badge&logo=postgresql&logoColor=111111)
 
-![Kafka](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-111111?style=for-the-badge&logo=apachekafka&logoColor=111111)
+![Redis](https://img.shields.io/badge/Redis-111111?style=for-the-badge&logo=redis&logoColor=111111)
+![Docker](https://img.shields.io/badge/Docker-111111?style=for-the-badge&logo=docker&logoColor=111111)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-111111?style=for-the-badge&logo=kubernetes&logoColor=111111)
 
-![Status](https://img.shields.io/badge/status-active_development-FFB000?style=flat-square)
-![Services](https://img.shields.io/badge/microservices-11-8A2BE2?style=flat-square)
-![Build](https://img.shields.io/badge/build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+![Status](https://img.shields.io/badge/status-active_development-FFD21F?style=flat-square)
+![Services](https://img.shields.io/badge/microservices-11-FFD21F?style=flat-square)
+![Build](https://img.shields.io/badge/build-Maven-FFD21F?style=flat-square&logo=apachemaven&logoColor=111111)
 
 <br/>
 
@@ -74,10 +74,10 @@ flowchart LR
     R --> S[⭐ Rating]
     S --> T[🕘 Ride History]
 
-    classDef onboarding fill:#7C3AED,stroke:#4C1D95,color:#fff,stroke-width:2px
-    classDef booking fill:#0EA5E9,stroke:#075985,color:#fff,stroke-width:2px
-    classDef trip fill:#F59E0B,stroke:#92400E,color:#fff,stroke-width:2px
-    classDef finish fill:#10B981,stroke:#065F46,color:#fff,stroke-width:2px
+    classDef onboarding fill:#111111,stroke:#FFD21F,color:#FFD21F,stroke-width:2px
+    classDef booking fill:#1A1A1A,stroke:#FFD21F,color:#FFFFFF,stroke-width:2px
+    classDef trip fill:#FFD21F,stroke:#A87900,color:#111111,stroke-width:2px
+    classDef finish fill:#2A2A2A,stroke:#FFD21F,color:#FFFFFF,stroke-width:2px
 
     class A,B,C,D,E,F,G onboarding
     class H,I,J,K,L booking
@@ -85,7 +85,7 @@ flowchart LR
     class Q,R,S,T finish
 ```
 
-| 🟣 Onboarding | 🔵 Booking | 🟠 Trip | 🟢 Completion |
+| ⚫ Onboarding | 🟡 Booking | 🟨 Trip | ⚪ Completion |
 |:--|:--|:--|:--|
 | Splash / Welcome | Home / Book a Ride | Live trip tracking | Payment |
 | Mobile number entry | Destination selection | Driver arrival | Payment success |
@@ -162,11 +162,11 @@ flowchart TB
     Ride --> Notification
     Ride --> Rating
 
-    classDef client fill:#111827,stroke:#06B6D4,color:#fff,stroke-width:2px
-    classDef infra fill:#7C3AED,stroke:#4C1D95,color:#fff,stroke-width:2px
-    classDef core fill:#F59E0B,stroke:#92400E,color:#fff,stroke-width:3px
-    classDef svc fill:#0EA5E9,stroke:#075985,color:#fff,stroke-width:2px
-    classDef money fill:#10B981,stroke:#065F46,color:#fff,stroke-width:2px
+    classDef client fill:#0B0B0B,stroke:#FFD21F,color:#FFFFFF,stroke-width:2px
+    classDef infra fill:#111111,stroke:#FFD21F,color:#FFD21F,stroke-width:2px
+    classDef core fill:#FFD21F,stroke:#A87900,color:#111111,stroke-width:3px
+    classDef svc fill:#1A1A1A,stroke:#FFD21F,color:#FFFFFF,stroke-width:2px
+    classDef money fill:#2A2A2A,stroke:#FFD21F,color:#FFFFFF,stroke-width:2px
 
     class Client client
     class Gateway,Discovery infra
@@ -363,9 +363,9 @@ No license has been selected yet. Until a license is added, others should not as
 
 <div align="center">
 
-**Built with ☕ and 💜 using Java 21 & Spring Boot**
+**Built with ☕ and 💛 using Java 21 & Spring Boot**
 
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,24&height=120&section=footer" alt="footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0B0B0B&height=120&section=footer&color2=FFD21F" alt="footer" width="100%"/>
 
 </div>
