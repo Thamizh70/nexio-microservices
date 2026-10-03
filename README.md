@@ -1,30 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0B0B0B&height=230&section=header&text=NEXIO&fontSize=80&fontColor=FFD21F&animation=fadeIn&fontAlignY=36&desc=Ride-Hailing%20Microservices%20Platform&descAlignY=58&descSize=22&descColor=FFFFFF" alt="Nexio banner" width="100%"/>
-
-<a href="https://github.com/Thamizh70/nexio-microservices">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pduration=3000&pause=800&color=FFD21F&center=true&vCenter=true&width=700&lines=Book+a+ride.+Track+it+live.+Pay+seamlessly.;Java+21+%2B+Spring+Boot+Microservices;Event-driven.+Scalable.+Cloud-ready." alt="Typing animation"/>
-</a>
-
-<br/>
-
-![Java](https://img.shields.io/badge/Java_21-FFD21F?style=for-the-badge&logo=openjdk&logoColor=111111)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-FFD21F?style=for-the-badge&logo=springboot&logoColor=111111)
-![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-FFD21F?style=for-the-badge&logo=spring&logoColor=111111)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-FFD21F?style=for-the-badge&logo=postgresql&logoColor=111111)
-
-![Kafka](https://img.shields.io/badge/Kafka-111111?style=for-the-badge&logo=apachekafka&logoColor=111111)
-![Redis](https://img.shields.io/badge/Redis-111111?style=for-the-badge&logo=redis&logoColor=111111)
-![Docker](https://img.shields.io/badge/Docker-111111?style=for-the-badge&logo=docker&logoColor=111111)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-111111?style=for-the-badge&logo=kubernetes&logoColor=111111)
-
-![Status](https://img.shields.io/badge/status-active_development-FFD21F?style=flat-square)
-![Services](https://img.shields.io/badge/microservices-11-FFD21F?style=flat-square)
-![Build](https://img.shields.io/badge/build-Maven-FFD21F?style=flat-square&logo=apachemaven&logoColor=111111)
-
-<br/>
-
-**[Overview](#-overview) • [Product Flow](#-product-flow) • [Services](#-microservices) • [Architecture](#-architecture) • [Tech Stack](#-technology-stack) • [Getting Started](#-getting-started) • [Roadmap](#-roadmap)**
+<img src="docs/images/nexio-banner.png" alt="Nexio Ride-Hailing Microservices Platform" width="100%"/>
 
 </div>
 
